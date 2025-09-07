@@ -3,7 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
+import { Navigation } from "@/components/ui/navigation";
+import TodaySchedule from "./pages/TodaySchedule";
+import Registration from "./pages/Registration";
+import Patients from "./pages/Patients";
+import Requests from "./pages/Requests";
+import TherapistProfile from "./pages/TherapistProfile";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -14,11 +19,19 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="min-h-screen bg-background">
+          <Navigation />
+          <Routes>
+            <Route path="/" element={<TodaySchedule />} />
+            <Route path="/registration" element={<Registration />} />
+            <Route path="/patients" element={<Patients />} />
+            <Route path="/requests" element={<Requests />} />
+            <Route path="/profile" element={<TherapistProfile />} />
+            <Route path="/analytics" element={<TodaySchedule />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

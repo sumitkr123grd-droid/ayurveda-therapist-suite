@@ -22,6 +22,7 @@ export default {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          soft: "hsl(var(--primary-soft))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -30,6 +31,14 @@ export default {
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -46,6 +55,18 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        status: {
+          pending: "hsl(var(--status-pending))",
+          ongoing: "hsl(var(--status-ongoing))",
+          completed: "hsl(var(--status-completed))",
+        },
+        therapy: {
+          vamana: "hsl(var(--therapy-vamana))",
+          virechana: "hsl(var(--therapy-virechana))",
+          basti: "hsl(var(--therapy-basti))",
+          nasya: "hsl(var(--therapy-nasya))",
+          raktamokshana: "hsl(var(--therapy-raktamokshana))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
