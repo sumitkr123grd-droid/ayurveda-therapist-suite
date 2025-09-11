@@ -6,7 +6,7 @@ import {
   Users, 
   ClipboardList, 
   Settings,
-  Activity
+  MessageSquare
 } from "lucide-react";
 
 const navigationItems = [
@@ -15,7 +15,7 @@ const navigationItems = [
   { name: "Patients", href: "/patients", icon: Users },
   { name: "Requests", href: "/requests", icon: ClipboardList },
   { name: "Profile", href: "/profile", icon: Settings },
-  { name: "Analytics", href: "/analytics", icon: Activity },
+  { name: "Feedback", href: "/feedback", icon: MessageSquare },
 ];
 
 export function Navigation() {
