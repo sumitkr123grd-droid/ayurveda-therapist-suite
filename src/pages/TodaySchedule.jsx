@@ -113,6 +113,17 @@ export default function TodaySchedule() {
           : session
       )
     );
+    
+    const session = sessions.find(s => s.id === sessionId);
+    console.log("=== SESSION STATUS UPDATED ===");
+    console.log("Session ID:", sessionId);
+    console.log("Patient:", session?.patient);
+    console.log("Therapy Type:", session?.therapyType);
+    console.log("Time Slot:", session?.timeSlot);
+    console.log("Room:", session?.room);
+    console.log("Previous Status:", session?.status);
+    console.log("New Status:", newStatus);
+    console.log("==============================");
   };
 
   const today = new Date().toLocaleDateString('en-US', {

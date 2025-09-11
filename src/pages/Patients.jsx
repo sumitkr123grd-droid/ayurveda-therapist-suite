@@ -80,6 +80,24 @@ export default function Patients() {
     return Math.round((completed / total) * 100);
   };
 
+  const logPatientData = (patient) => {
+    console.log("=== PATIENT DATA ===");
+    console.log("Patient ID:", patient.id);
+    console.log("Name:", patient.name);
+    console.log("Age:", patient.age);
+    console.log("Gender:", patient.gender);
+    console.log("Phone:", patient.phone);
+    console.log("Email:", patient.email);
+    console.log("Address:", patient.address);
+    console.log("Prakriti:", patient.prakriti);
+    console.log("Dosha Imbalance:", patient.doshaImbalance);
+    console.log("Allergies:", patient.allergies);
+    console.log("Current Therapy:", patient.currentTherapy);
+    console.log("Session History:", patient.sessionHistory);
+    console.log("Precautions:", patient.precautions);
+    console.log("===================");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-soft via-accent to-secondary p-4">
       <div className="max-w-7xl mx-auto">
@@ -126,19 +144,29 @@ export default function Patients() {
                       <div className="text-sm font-medium text-primary">
                         {patient.currentTherapy.type} Therapy
                       </div>
-                      <div className="text-xs text-muted-foreground">
-                        {patient.currentTherapy.completedSessions}/{patient.currentTherapy.totalSessions} sessions
-                      </div>
-                      
-                      {/* Progress Bar */}
-                      <div className="w-full bg-muted rounded-full h-2 mt-2">
-                        <div 
-                          className="bg-primary h-2 rounded-full transition-all duration-300"
-                          style={{ 
-                            width: `${getProgressPercentage(patient.currentTherapy.completedSessions, patient.currentTherapy.totalSessions)}%` 
-                          }}
-                        />
-                      </div>
+                        <div className="text-xs text-muted-foreground">
+                          {patient.currentTherapy.completedSessions}/{patient.currentTherapy.totalSessions} sessions
+                        </div>
+                        
+                        {/* Progress Bar */}
+                        <div className="w-full bg-muted rounded-full h-2 mt-2">
+                          <div 
+                            className="bg-primary h-2 rounded-full transition-all duration-300"
+                            style={{ 
+                              width: `${getProgressPercentage(patient.currentTherapy.completedSessions, patient.currentTherapy.totalSessions)}%` 
+                            }}
+                          />
+                        </div>
+                        
+                        {/* Send Data Button */}
+                        <Button 
+                          onClick={() => logPatientData(patient)}
+                          size="sm" 
+                          variant="outline" 
+                          className="w-full mt-2 text-xs"
+                        >
+                          Send to Terminal
+                        </Button>
                     </CardContent>
                   </Card>
                 ))}

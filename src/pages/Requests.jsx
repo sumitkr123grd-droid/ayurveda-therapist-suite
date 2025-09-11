@@ -117,6 +117,17 @@ export default function Requests() {
     );
     
     const request = requests.find(r => r.id === requestId);
+    console.log("=== REQUEST ACCEPTED ===");
+    console.log("Request ID:", request.id);
+    console.log("Patient Name:", request.patientName);
+    console.log("Patient ID:", request.patientId);
+    console.log("Therapy Type:", request.therapyType);
+    console.log("Date:", request.requestedDate);
+    console.log("Time:", request.requestedTime);
+    console.log("Room/Bed:", request.roomBed);
+    console.log("Status: ACCEPTED");
+    console.log("======================");
+    
     toast({
       title: "Request Accepted",
       description: `Therapy session for ${request.patientName} has been accepted and scheduled.`,
@@ -134,6 +145,16 @@ export default function Requests() {
     );
     
     const request = requests.find(r => r.id === requestId);
+    console.log("=== REQUEST REJECTED ===");
+    console.log("Request ID:", request.id);
+    console.log("Patient Name:", request.patientName);
+    console.log("Patient ID:", request.patientId);
+    console.log("Therapy Type:", request.therapyType);
+    console.log("Date:", request.requestedDate);
+    console.log("Time:", request.requestedTime);
+    console.log("Status: REJECTED");
+    console.log("=======================");
+    
     toast({
       title: "Request Rejected",
       description: `Therapy request for ${request.patientName} has been rejected.`,

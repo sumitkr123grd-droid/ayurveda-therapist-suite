@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
+import { useAppContext } from "@/context/AppContext";
 import { UserPlus, Clock, MapPin } from "lucide-react";
 
 const specializations = [
@@ -28,6 +30,8 @@ const workingDays = [
 ];
 
 export default function Registration() {
+  const { saveTherapistData } = useAppContext();
+  const navigate = useNavigate();
   const { toast } = useToast();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -63,11 +67,32 @@ export default function Registration() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.fullName || !formData.mobile || !formData.email || !formData.gender || 
+        formData.specializations.length === 0 || !formData.experience || 
+        formData.workingDays.length === 0 || !formData.startTime || !formData.endTime) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Save data to context and localStorage
+    saveTherapistData(formData);
+    
     toast({
       title: "Registration Successful!",
       description: "Your therapist profile has been created successfully.",
       className: "bg-success text-success-foreground",
     });
+
+    // Navigate to profile page
+    setTimeout(() => {
+      navigate("/profile");
+    }, 1500);
   };
 
   return (
